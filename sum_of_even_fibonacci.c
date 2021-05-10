@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main (void)
+int main ()
 {    
     int i, sum=0, t1 = 0, t2 = 1;
     int nextTerm = t1 + t2;
