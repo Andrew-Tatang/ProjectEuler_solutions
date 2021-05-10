@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int main (void)
+int main ()
 {
     long long n = 600851475143;
     int factor, i;
