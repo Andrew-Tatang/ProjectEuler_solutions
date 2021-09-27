@@ -1,29 +1,25 @@
 #include <stdio.h>
-
-int main (void)
+static int test_palindromic(unsigned int n);
+int main(void)
 {
-    long n, i, j, originalN, remainder, reversedN = 0;
-
-    for (i=100; i<1000; i++)
-    {
-        for (j=100; j<1000; j++)
-        {
-            n = i*j;
-            originalN = n;
-
-            while (n != 0)
-            {
-                remainder = n%10;
-                reversedN = reversedN*10 + remainder;
-                n /= 10;
-            }
-
-            if (originalN == reversedN)
-            {
-                printf("%ld, ", originalN);
-            }
-        }
+  unsigned int i, j, max = 0;
+  for (i = 100; i <= 999; i++) {
+    for (j = 100; j <= 999; j++) {
+      unsigned int p = i*j;
+      if (test_palindromic(p) && p > max) {
+        max = p;
+      }
     }
-
-    return 0;
+  }
+  printf("%u\n", max);
+  return 0;
+}
+int test_palindromic(unsigned int n)
+{
+  unsigned int reversed_num = 0, t = n;
+  while (t) {
+    reversed_num = 10*reversed_num + (t % 10);
+    t /= 10;
+  }
+  return reversed_num == n;
 }
